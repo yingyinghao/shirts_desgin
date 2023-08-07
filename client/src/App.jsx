@@ -6,7 +6,7 @@ function App() {
 
   return (
 <main className='app transition-all ease-in'>
-<h1 className='head-text'>shuaiqi  you are the best</h1>
+<h1 className='head-text'>make your shirt</h1>
 <Home />
 <Canvas />
 <Customizer />
