@@ -50,12 +50,15 @@ const snap = useSnapshot(state);
     </motion.div>
 
     <motion.div
-    className = "filtertabs-container" {...slideAnimation("up")}
+    className = "filtertabs-container"
+    {...slideAnimation("up")}
     >
-      {Filter.map((tab) => (
+      {FilterTabs.map((tab) => (
         <Tab
         key = {tab.name}
         tab = {tab}
+        isFilterTab
+        isActiveTab =""
         handleClick={()=>{}}
         />
       ))}
