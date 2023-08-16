@@ -7,11 +7,15 @@ const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) =>
 {
   const snap = useSnapshot(state)
 
-
-const Tab = () => {
   return (
-    <div>Tab</div>
-  )
+<div
+key = {tab.name}
+className = {`tab-btn ${isFilterTab ? `rounded-full glassmorhismm` : `rounded-4`}`}
+onClick = {handleClick}
+></div>
+    )
 }
+
+
 
 export default Tab
