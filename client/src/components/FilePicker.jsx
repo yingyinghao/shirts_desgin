@@ -2,10 +2,10 @@ import React from 'react'
 import CustomButton from './CustomButton'
 
 
-const FilePicker = () => {
+const FilePicker = ({file, setFile, readFile}) => {
   return (
     <div className="filepicker-container">
-      <div className='flex-1 flex flex-col'
+      <div className='flex-1 flex flex-col'>
       <input
       id="file-upload"
       type="file"
@@ -16,12 +16,29 @@ const FilePicker = () => {
         Upload Files
       </label>
 
-    <p className='>
+    <p className='mt-2 text-grey-500 text-xs truncate'>
     {file === "" ? "No file selected" : file.name}
     </p>
       </div>
-      </div>
-    )
+
+      <div className='mt-4 flex flex-wrap gap-36'>
+        <CustomButton
+        type="outline"
+        title="Logo"
+        handleClick={()=> readFile('logo')}
+        customStyles="text-xs"
+        />
+        <CustomButton
+        type="filled"
+        title="Full"
+        handleClick={()=> readFile('full')}
+        customStyles="text-xs"
+        />
+
+
+    </div>
+  </div>
+  )
 }
 
 export default FilePicker
