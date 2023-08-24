@@ -38,18 +38,41 @@ const generateTabContent = () => {
       readFile = {readFile}
       />;
     case "aipicker":
-      return <AIPicker />;
+      return <AIPicker
+      prompt = {prompt}
+      setPrompt = {setPrompt}
+      generatingImg = {generatingImg}
+      handleSubmit = {handleSubmit}
+      />;
     default:
       return null;
   }
 }
+
+const handleSubmit = async (type) => {
+  if(!prompt) return alert('Please enter a prompt');
+
+
+  try {
+    //call our backend to generate an ai image!
+
+
+  }catch(error){
+    alert(error)
+  }finally{
+    setGeneratingImg(false);
+    setactiveEditorTab("");
+  }
+}
+
+
 
 const handleDecals = (type, result) => {
   const decalType = DecalTypes[type];
 
   state[decalType.stateProperty] = result;
 
-  if(!avtiveFilterTab[decalType.filterTab]){
+  if(!activeFilterTab[decalType.filterTab]){
     handleActiveFilterTab(decalType.filterTab);
   }
 }
