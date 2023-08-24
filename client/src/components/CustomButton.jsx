@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSnapshot} from 'valtio'
 import state from '../store'
-import {getConstrstingColor} from '../config/helpers';
+import {getContrastingColor} from '../config/helpers';
 
 
 const CustomButton = ({type, title, handleClick, customStyles}) =>
@@ -20,12 +20,10 @@ const CustomButton = ({type, title, handleClick, customStyles}) =>
         borderWidth: '1px',
         borderColor: snap.color,
         color: snap.color
+        }
       }
+    }
 
-    }
-      )
-    }
-  }
 
 
   return (

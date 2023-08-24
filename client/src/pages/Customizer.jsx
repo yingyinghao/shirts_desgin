@@ -19,7 +19,7 @@ const snap = useSnapshot(state);
 const [file, setFile] = useState('');
 const [generatingImg, setGeneratingImg] = useState(false);
 const [activeEditorTab, setactiveEditorTab] = useState('');
-const [avtiveFilterTab, setActiveFilterTab] = useState({
+const [activeFilterTab, setActiveFilterTab] = useState({
   logoShirt: true,
   stylishShirt: false,
 })
@@ -35,6 +35,7 @@ const generateTabContent = () => {
       return <FilePicker
       file = {file}
       setFile = {setFile}
+      readFile = {readFile}
       />;
     case "aipicker":
       return <AIPicker />;
@@ -48,8 +49,8 @@ const handleDecals = (type, result) => {
 
   state[decalType.stateProperty] = result;
 
-  if(!avtiveFilterTab[decalType.FilterTabs]){
-    handleActiveFilterTab(decalType.FilterTabs);
+  if(!avtiveFilterTab[decalType.filterTab]){
+    handleActiveFilterTab(decalType.filterTab);
   }
 }
 
@@ -63,7 +64,19 @@ const handleActiveFilterTab = (tabName) => {
     default:
       state.isLogoTexture = true;
       state.isFullTexture = false;
-  }
+
+    }
+
+    //after setting the state, activeFilterTab us updated
+
+    setActiveFilterTab((prevState) => {
+      return {
+        ...prevState,
+        [tabName]: !prevState[tabName]
+      }
+    })
+
+
 }
 
 
