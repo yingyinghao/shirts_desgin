@@ -1,4 +1,5 @@
 import React from 'react'
+
 import CustomButtom from './CustomButtom';
 
 
@@ -7,22 +8,23 @@ import CustomButtom from './CustomButtom';
 const AIPicker = ({prompt, setPrompt, generatingImg, handleSubmit}) => {
   return (
     <div className="aipicker-container">
-      <textarea placeholder="Ask Ai..."
+      <textarea
+      placeholder="Ask Ai..."
       rows={5}
       value={prompt}
       onChange={(e) => setPrompt(e.target.value)}
       className="aipicker-textarea"
       />
 
-<div className = "flex flex-wrap gap-3">
-  {generatingImg ? (
-    <CustomButtom
-    type="outline"
-    title="Asking AI..."
-    customStyles = "text-xs"
-    />
-  ) : (
-        <>
+      <div className = "flex flex-wrap gap-3">
+        {generatingImg ? (
+          <CustomButtom
+          type="outline"
+          title="Asking AI..."
+          customStyles = "text-xs"
+          />
+        ) : (
+              <>
 
         <CustomButtom
         type="outline"
@@ -40,6 +42,9 @@ const AIPicker = ({prompt, setPrompt, generatingImg, handleSubmit}) => {
         </>
       )}
       </div>
+    </div>
+  )
+}
 
 
 export default AIPicker
